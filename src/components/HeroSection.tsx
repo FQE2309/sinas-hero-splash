@@ -1,84 +1,101 @@
 import { Button } from "@/components/ui/button";
-import { Droplet, ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-sinas.jpg";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import heroImage from "@/assets/hero-water-person.jpg";
+import { useState } from "react";
+
+const slides = [
+  {
+    title: "SINAS ya interopera con el SIRH del IDEAM",
+    description: "Integración de sistemas para mejor gestión del recurso hídrico",
+    image: heroImage,
+  },
+  {
+    title: "Sistema Nacional de Información Ambiental y Sanitaria",
+    description: "Transparencia y sostenibilidad en la gestión del agua",
+    image: heroImage,
+  },
+];
 
 const HeroSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+    <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-light to-secondary pt-32 md:pt-40">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src={heroImage}
-          alt="Ondas de agua representando sostenibilidad y gestión ambiental"
-          className="w-full h-full object-cover opacity-20 wave-animation"
+          src={slides[currentSlide].image}
+          alt="Gestión del agua en Colombia"
+          className="w-full h-full object-cover opacity-30 transition-opacity duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-overlay" />
+        <div className="absolute inset-0 bg-primary/40" />
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-primary-light/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse delay-1000" />
-
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto animate-fade-in">
-          {/* Icon */}
-          <div className="flex justify-center mb-8 animate-scale-in">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary-foreground/20 rounded-full blur-xl animate-pulse" />
-              <div className="relative glassmorphism rounded-full p-6">
-                <Droplet className="w-16 h-16 text-primary-foreground" strokeWidth={1.5} />
-              </div>
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left Content */}
+          <div className="text-primary-foreground animate-fade-in">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              {slides[currentSlide].title}
+            </h2>
+            <p className="text-lg sm:text-xl mb-8 opacity-95">
+              {slides[currentSlide].description}
+            </p>
+            
+            {/* Carousel Controls */}
+            <div className="flex gap-2 mb-8">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    index === currentSlide
+                      ? "w-12 bg-primary-foreground"
+                      : "w-2 bg-primary-foreground/40 hover:bg-primary-foreground/60"
+                  }`}
+                  aria-label={`Ir a slide ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
 
-          {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-            Sistema Nacional de Información
-            <span className="block mt-2 bg-gradient-to-r from-primary-foreground via-primary-light to-primary-foreground bg-clip-text text-transparent">
-              Ambiental y Sanitaria
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl md:text-2xl text-primary-foreground/90 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-            Transparencia y sostenibilidad en la gestión del agua y el saneamiento básico en Colombia
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              variant="hero"
-              size="xl"
-              className="group"
-              aria-label="Explorar proyectos de saneamiento y agua"
-            >
-              Explorar proyectos
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              variant="hero-outline"
-              size="xl"
-              aria-label="Acceder al sistema SINAS"
-            >
-              Acceder al sistema
-            </Button>
-          </div>
-
-          {/* Stats or badges (optional) */}
-          <div className="mt-16 flex flex-wrap justify-center gap-8 text-primary-foreground/80">
-            <div className="glassmorphism px-6 py-3 rounded-full">
-              <p className="text-sm font-medium">🌊 Gestión del Agua</p>
-            </div>
-            <div className="glassmorphism px-6 py-3 rounded-full">
-              <p className="text-sm font-medium">♻️ Sostenibilidad</p>
-            </div>
-            <div className="glassmorphism px-6 py-3 rounded-full">
-              <p className="text-sm font-medium">🇨🇴 Nacional</p>
+          {/* Right Content - Image Preview (visible on large screens) */}
+          <div className="hidden lg:block">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl glassmorphism p-1">
+              <img
+                src={slides[currentSlide].image}
+                alt="Gestión sostenible del agua"
+                className="w-full h-auto rounded-xl"
+              />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-primary-foreground/10 backdrop-blur-sm hover:bg-primary-foreground/20 text-primary-foreground p-3 rounded-full transition-all"
+        aria-label="Slide anterior"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-primary-foreground/10 backdrop-blur-sm hover:bg-primary-foreground/20 text-primary-foreground p-3 rounded-full transition-all"
+        aria-label="Siguiente slide"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
 
       {/* Bottom Wave Decoration */}
       <div className="absolute bottom-0 left-0 right-0 z-0">

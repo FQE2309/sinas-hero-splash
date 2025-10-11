@@ -1,10 +1,13 @@
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import ReportesSection from "@/components/ReportesSection";
 
 const Index = () => {
   return (
-    <main>
+    <main className="min-h-screen">
+      <Navbar />
       <HeroSection />
-      {/* Aquí puedes agregar más secciones del landing page */}
+      <ReportesSection />
     </main>
   );
 };
