@@ -57,12 +57,13 @@ const ReportesSection = () => {
                   </div>
                 </CardHeader>
                 {reporte.link && (
-                  <CardContent>
+                  <CardContent className="pt-0">
                     <a
                       href={reporte.link}
-                      className="text-primary hover:text-primary-dark font-medium inline-flex items-center gap-2 group/link"
+                      className="text-primary hover:text-primary-dark font-medium inline-flex items-center gap-2 group/link transition-colors"
+                      aria-label={`Consultar reporte de ${reporte.title}`}
                     >
-                      consulte el reporte aquí
+                      Consulte el reporte aquí
                       <span className="group-hover/link:translate-x-1 transition-transform">→</span>
                     </a>
                   </CardContent>

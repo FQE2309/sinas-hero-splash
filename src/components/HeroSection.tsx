@@ -1,17 +1,16 @@
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Waves, Building2, Shield } from "lucide-react";
 import heroImage from "@/assets/hero-water-person.jpg";
 import { useState } from "react";
 
 const slides = [
   {
     title: "SINAS ya interopera con el SIRH del IDEAM",
-    description: "Integración de sistemas para mejor gestión del recurso hídrico",
+    description: "Integración de sistemas para mejor gestión del recurso hídrico en Colombia",
     image: heroImage,
   },
   {
-    title: "Sistema Nacional de Información Ambiental y Sanitaria",
-    description: "Transparencia y sostenibilidad en la gestión del agua",
+    title: "Transparencia en la gestión del agua",
+    description: "Sistema Nacional de Información para el desarrollo sostenible del país",
     image: heroImage,
   },
 ];
