@@ -1,0 +1,63 @@
+<svg width="400" height="80" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente para la gota azul claro -->
+    <linearGradient id="waterDropWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#E3F2FD" />
+      <stop offset="30%" stopColor="#BBDEFB" />
+      <stop offset="70%" stopColor="#90CAF9" />
+      <stop offset="100%" stopColor="#64B5F6" />
+    </linearGradient>
+    
+    <!-- Gradiente para la hoja verde claro -->
+    <linearGradient id="leafGreenWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#C8E6C9" />
+      <stop offset="50%" stopColor="#A5D6A7" />
+      <stop offset="100%" stopColor="#81C784" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Gota de agua principal -->
+  <path d="M25 15 
+           C18 8, 32 8, 25 15 
+           C25 35, 8 45, 25 60 
+           C42 45, 25 35, 25 15 Z" 
+        fill="url(#waterDropWhite)" />
+  
+  <!-- Hoja verde integrada -->
+  <path d="M15 25 
+           C12 22, 18 22, 15 25 
+           C15 30, 12 33, 9 30 
+           C6 27, 9 25, 15 25 Z" 
+        fill="url(#leafGreenWhite)" />
+  
+  <!-- Brillo en la gota -->
+  <ellipse cx="22" cy="25" rx="3" ry="6" fill="rgba(255,255,255,0.8)" />
+  
+  <!-- Línea separadora vertical -->
+  <line x1="65" y1="20" x2="65" y2="60" stroke="white" stroke-width="3" />
+  
+  <!-- Texto SINAS -->
+  <text x="80" y="35" 
+        font-family="Arial, sans-serif" 
+        font-size="28" 
+        font-weight="bold" 
+        fill="white">SINAS</text>
+  
+  <!-- Subtítulo línea 1 -->
+  <text x="80" y="48" 
+        font-family="Arial, sans-serif" 
+        font-size="12" 
+        fill="white">Sistema de Inversiones</text>
+  
+  <!-- Subtítulo línea 2 -->
+  <text x="80" y="58" 
+        font-family="Arial, sans-serif" 
+        font-size="12" 
+        fill="white">en Agua Potable y</text>
+  
+  <!-- Subtítulo línea 3 -->
+  <text x="80" y="68" 
+        font-family="Arial, sans-serif" 
+        font-size="12" 
+        fill="white">Saneamiento Básico.</text>
+</svg>

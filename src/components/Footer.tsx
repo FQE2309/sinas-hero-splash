@@ -1,8 +1,13 @@
-import { Droplet, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Youtube, Instagram, Settings } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { Link } from "react-router-dom";
+import Logo from "@/components/Logo";
+import XIcon from "@/components/icons/XIcon";
+import { useLinks } from "@/contexts/LinksContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { links } = useLinks();
 
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -11,11 +16,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* About Column */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-primary-foreground/10 rounded-full p-2">
-                <Droplet className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold">SINAS</h3>
+            <div className="mb-4">
+              <Logo size="sm" />
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed mb-4">
               Sistema de Inversiones en Agua Potable y Saneamiento Básico del Ministerio de
@@ -23,32 +25,49 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="#"
+                href={links.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary-foreground/10 hover:bg-primary-foreground/20 p-2 rounded-full transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href={links.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary-foreground/10 hover:bg-primary-foreground/20 p-2 rounded-full transition-colors"
-                aria-label="Twitter"
+                aria-label="X (antes Twitter)"
               >
-                <Twitter className="w-4 h-4" />
+                <XIcon className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href={links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary-foreground/10 hover:bg-primary-foreground/20 p-2 rounded-full transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
-                href="#"
+                href={links.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary-foreground/10 hover:bg-primary-foreground/20 p-2 rounded-full transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="w-4 h-4" />
+              </a>
+              <a
+                href={links.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-foreground/10 hover:bg-primary-foreground/20 p-2 rounded-full transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -58,29 +77,34 @@ const Footer = () => {
             <h4 className="font-semibold text-lg mb-4">Enlaces Rápidos</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#acerca" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to="/#acerca" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Acerca del SINAS
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#normatividad" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to="/normatividad" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Normatividad
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#interoperabilidad" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to="/interoperabilidad" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Interoperabilidad
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#reportes" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to="/gestores-comunitarios" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Gestores Comunitarios
+                </Link>
+              </li>
+              <li>
+                <Link to="/#reportes" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Reportes Públicos
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#ayuda" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to="/#ayuda" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Ayuda
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -90,29 +114,29 @@ const Footer = () => {
             <h4 className="font-semibold text-lg mb-4">Información Legal</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <a href={links.terminosUso} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Términos y Condiciones
                 </a>
               </li>
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <a href={links.politicaPrivacidad} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Política de Privacidad
                 </a>
               </li>
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <a href={links.politicaPrivacidad} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Política de Tratamiento de Datos
                 </a>
               </li>
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <a href={links.contacto} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Accesibilidad
                 </a>
               </li>
               <li>
-                <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                <Link to="/sitemap" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Mapa del Sitio
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -124,20 +148,23 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <span className="text-primary-foreground/80">
-                  Calle 17 # 9 - 36<br />
-                  Bogotá D.C., Colombia
+                  Sede Servicio al Ciudadano<br />
+                  Calle 17 No. 9 - 36 piso 3<br />
+                  Bogotá, D. C., Colombia<br />
+                  Código Postal: 110321
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span className="text-primary-foreground/80">
+                  Horario de Atención:<br />
+                  Lunes a viernes de 8:00 am - 5:30 pm
                 </span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 flex-shrink-0" />
-                <a href="tel:+576013323434" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  +57 601 332 3434
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <a href="mailto:sinas@minvivienda.gov.co" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  sinas@minvivienda.gov.co
+                <a href={links.soporteTecnico} className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  {links.soporteTecnico.replace('mailto:', '')}
                 </a>
               </li>
             </ul>
@@ -153,13 +180,22 @@ const Footer = () => {
           <p>
             © {currentYear} Ministerio de Vivienda, Ciudad y Territorio - Todos los derechos reservados
           </p>
-          <div className="flex gap-6">
-            <a href="https://www.gov.co" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
+          <div className="flex gap-6 items-center">
+            <a href={links.govco} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
               GOV.CO
             </a>
-            <a href="https://www.minvivienda.gov.co" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
+            <a href={links.minvivienda} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
               MinVivienda
             </a>
+            {/* Logo administrativo discreto */}
+            <Link 
+              to="/admin/links" 
+              className="opacity-40 hover:opacity-100 transition-opacity ml-4 text-primary-foreground/60 hover:text-primary-foreground"
+              aria-label="Panel de administración"
+              title="Panel de administración"
+            >
+              <Settings className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>

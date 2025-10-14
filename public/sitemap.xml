@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página principal -->
+  <url>
+    <loc>https://sinas.minvivienda.gov.co/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Sección de Reportes Públicos -->
+  <url>
+    <loc>https://sinas.minvivienda.gov.co/#reportes</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Interoperabilidad -->
+  <url>
+    <loc>https://sinas.minvivienda.gov.co/interoperabilidad</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Normatividad -->
+  <url>
+    <loc>https://sinas.minvivienda.gov.co/normatividad</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Gestores Comunitarios -->
+  <url>
+    <loc>https://sinas.minvivienda.gov.co/gestores-comunitarios</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Guías y Manuales -->
+  <url>
+    <loc>https://sinas.minvivienda.gov.co/guias-manuales</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Tutoriales -->
+  <url>
+    <loc>https://sinas.minvivienda.gov.co/tutoriales</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Mapa del Sitio -->
+  <url>
+    <loc>https://sinas.minvivienda.gov.co/sitemap</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>
