@@ -25,3 +25,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Ignorar los contenidos de las carpetas de descargas
+public/downloads/documentos/
+public/downloads/pdfs/
+public/downloads/videos/
