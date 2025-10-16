@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # Servicio principal de la landing page
+  sinas-landing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: sinas-landing-page
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sinas.rule=Host(`sinas.local`)"
+      - "traefik.http.services.sinas.loadbalancer.server.port=80"
+    networks:
+      - sinas-network
+    volumes:
+      # Montar logs para debugging si es necesario
+      - ./logs:/var/log/nginx
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Servicio opcional: Nginx reverse proxy para múltiples servicios
+  reverse-proxy:
+    image: traefik:v2.9
+    container_name: sinas-traefik
+    ports:
+      - "80:80"
+      - "8080:8080"  # Dashboard de Traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+    networks:
+      - sinas-network
+    restart: unless-stopped
+    profiles:
+      - proxy  # Solo se inicia si se especifica --profile proxy
+
+  # Servicio opcional: Base de datos para futuras expansiones
+  database:
+    image: postgres:15-alpine
+    container_name: sinas-database
+    environment:
+      POSTGRES_DB: sinas_db
+      POSTGRES_USER: sinas_user
+      POSTGRES_PASSWORD: sinas_password_2024
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - sinas-network
+    restart: unless-stopped
+    profiles:
+      - database  # Solo se inicia si se especifica --profile database
+
+  # Servicio opcional: Redis para caché
+  redis:
+    image: redis:7-alpine
+    container_name: sinas-redis
+    volumes:
+      - redis_data:/data
+    networks:
+      - sinas-network
+    restart: unless-stopped
+    profiles:
+      - cache  # Solo se inicia si se especifica --profile cache
+
+networks:
+  sinas-network:
+    driver: bridge
+    name: sinas-network
+
+volumes:
+  postgres_data:
+    name: sinas_postgres_data
+  redis_data:
+    name: sinas_redis_data
