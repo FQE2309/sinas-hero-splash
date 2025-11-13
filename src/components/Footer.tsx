@@ -148,10 +148,8 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <span className="text-primary-foreground/80">
-                  Sede Servicio al Ciudadano<br />
                   Calle 17 No. 9 - 36 piso 3<br />
-                  Bogotá, D. C., Colombia<br />
-                  Código Postal: 110321
+                  Bogotá, D. C., Colombia
                 </span>
               </li>
               <li className="flex items-start gap-2">

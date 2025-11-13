@@ -136,7 +136,7 @@ const AyudaSection = () => {
               <p className="text-sm text-muted-foreground">
                 <strong>Horario de Atención:</strong> Lunes a viernes de 8:00 am - 5:30 pm<br/>
                 <strong>Correo general:</strong> correspondencia@minvivienda.gov.co<br/>
-                <strong>Teléfono Conmutador:</strong> +57 (1) 3715363
+                <strong>Teléfono:</strong> 57 (1) 3715363
               </p>
             </div>
           </div>

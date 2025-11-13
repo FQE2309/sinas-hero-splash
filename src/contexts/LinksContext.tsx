@@ -29,11 +29,11 @@ export interface SiteLinks {
 
 const defaultLinks: SiteLinks = {
   // Enlaces principales
-  ingresarSistema: 'https://sinas.minvivienda.gov.co/SINAS/inicio/Login.aspx',
+  ingresarSistema: 'https://appsinas.minvivienda.gov.co/SINAS/inicio/inicio.aspx',
   gestoresComunitarios: 'https://gestores.sinas.minvivienda.gov.co/registro',
   
   // Redes sociales
-  facebook: 'https://www.facebook.com/MinVivienda',
+  facebook: 'https://www.facebook.com/MinVivienda/',
   twitter: 'https://x.com/minvivienda', // Cambiado a X
   linkedin: 'https://www.linkedin.com/company/ministerio-de-vivienda-ciudad-y-territorio',
   youtube: 'https://www.youtube.com/user/MinVivienda',
@@ -44,7 +44,7 @@ const defaultLinks: SiteLinks = {
   govco: 'https://www.gov.co',
   
   // Enlaces de ayuda y soporte
-  soporteTecnico: 'mailto:soporte.sinas@minvivienda.gov.co',
+  soporteTecnico: 'mailto:correspondencia@minvivienda.gov.co',
   manualesGuias: '/guias-manuales',
   tutoriales: '/tutoriales',
   

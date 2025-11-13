@@ -65,3 +65,13 @@ LABEL description="Landing Page SINAS - React + Vite"
 
 # Comando por defecto
 CMD ["nginx", "-g", "daemon off;"]
+
+
+
+
+
+
+
+
+
+
